@@ -45,21 +45,19 @@ export default function Navbar() {
         <div className="w-full overflow-hidden bg-white ring-1 ring-slate-200 shadow-[0_10px_40px_rgba(0,0,0,0.10)]">
 
           
-          <div className="bg-white px-6 sm:px-10 py-6">
-            <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-6">
-              <img src="/logos/nss_logo.png" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/logos/mybharat-logo 1.png" className="h-14 sm:h-16 w-auto object-contain" />
-              <img src="/logos/yas-logo 1.png" className="h-14 sm:h-16 w-auto object-contain" />
-              <img src="/logos/viksit-bharat-logo 1.png" className="h-14 sm:h-16 w-auto object-contain" />
-              <img src="/logos/digital-india 1.png" className="h-12 sm:h-14 w-auto object-contain" />
-              <img src="/logos/bit_mesra.png" className="h-16 sm:h-20 w-auto object-contain" />
+          <div className="bg-white px-4 py-4 sm:px-10 sm:py-6">
+            <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 sm:gap-6">
+              <img src="/logos/nss_logo.png" className="h-10 sm:h-20 w-auto object-contain" />
+              <img src="/logos/mybharat-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
+              <img src="/logos/yas-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
+              <img src="/logos/viksit-bharat-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
+              <img src="/logos/digital-india 1.png" className="h-8 sm:h-14 w-auto object-contain" />
+              <img src="/logos/bit_mesra.png" className="h-10 sm:h-20 w-auto object-contain" />
             </div>
           </div>
 
           
           <div className="relative w-full bg-[#19366b]">
-            <div className="absolute right-0 top-0 h-full w-1 bg-[#F6170F]" />
-
             <div className="flex items-center justify-between px-4 py-3 sm:hidden">
               <span className="text-sm font-semibold uppercase tracking-wide text-white">
                 Menu

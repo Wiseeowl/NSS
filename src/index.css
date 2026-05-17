@@ -76,5 +76,21 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scrollLeft 10s linear infinite;
+  animation: scrollLeft var(--ticker-duration, 18s) linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .notice-ticker {
+    --ticker-duration: 10s;
+  }
+}
+
+.notice-ticker {
+  --ticker-duration: 18s;
+}
+
+.ticker-track {
+  min-width: 200%;
 }

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { notices } from "../data/notices";
 import { events } from "../data/events";
-const latestNotices = notices.slice(0, 5);
+const sortedNotices = [...notices].sort(
+  (a, b) => new Date(b.date) - new Date(a.date)
+);
+const latestNotices = sortedNotices.slice(0, 5);
 const scrollNotices = [...latestNotices, ...latestNotices];
 const latestEvents = [...events]
   .sort((a, b) => b.id - a.id)
@@ -14,27 +17,27 @@ export default function Message() {
         
         <div className="w-full overflow-hidden rounded-6px border border-slate-300 bg-[#E0F7FA] shadow-[0_10px_28px_rgba(0,0,0,0.18)]">
           
-          <div className="flex items-center justify-between bg-[#19366b] px-6 py-3">
-            <div className="w-180px text-left text-sm font-semibold uppercase tracking-wide text-white leading-tight pr-4">
+          <div className="flex items-center justify-between bg-[#19366b] px-3 py-3 sm:px-6">
+            <div className="w-28 text-left text-[11px] font-semibold uppercase tracking-wide text-white leading-tight pr-2 sm:w-180px sm:text-sm sm:pr-4">
               RECENT
               <br />
               NOTICES
             </div>
 
-            <div className="flex-1 overflow-hidden">
-              <div className="flex whitespace-nowrap animate-scroll-left text-sm font-semibold uppercase tracking-wide text-white">
+            <div className="flex-1 overflow-hidden notice-ticker">
+              <div className="ticker-track flex whitespace-nowrap animate-scroll-left text-[11px] font-semibold uppercase tracking-wide text-white sm:text-sm">
                 {scrollNotices.map((item, index) => (
-                  <span key={index} className="mx-8 flex-shrink-0">
+                  <span key={index} className="mx-4 flex-shrink-0 sm:mx-8">
                     {item.title}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="w-45 text-right">
+            <div className="ml-2 text-right">
               <Link
                 to="/notice"
-                className="inline-block rounded-full bg-[#F6170F] px-4 py-2 text-xs font-bold uppercase tracking-wide text-white hover:opacity-90 transition"
+                className="inline-block rounded-full bg-[#F6170F] px-3 py-2 text-[10px] font-bold uppercase tracking-wide text-white hover:opacity-90 transition sm:px-4 sm:text-xs"
               >
                 VIEW ALL <br /> NOTICES
               </Link>
