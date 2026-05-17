@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AboutUs() {
   return (
     <section id="about" className="w-full">
@@ -141,9 +143,9 @@ export default function AboutUs() {
               { name: "Environment", id: "environment" },
               { name: "Health", id: "health" }
             ].map((domain) => (
-              <a
+              <Link
                 key={domain.id}
-                href={`/activity/${domain.id}`}
+                to={`/activity/${domain.id}`}
                 className="bg-gray-100 hover:bg-white rounded-xl p-6 flex justify-between items-center shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-200 group cursor-pointer no-underline"
               >
                 <span className="text-xl font-medium text-[#19366b] group-hover:text-[#F6170F] transition-colors">
@@ -152,7 +154,7 @@ export default function AboutUs() {
                 <span className="text-[#19366b] group-hover:text-[#F6170F] transform group-hover:translate-x-1 transition-all duration-300 text-2xl">
                   &gt;
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

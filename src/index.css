@@ -7,6 +7,7 @@
 }
 
 html, body, #root {
+  width: 100%;
   height: 100%;
 }
 
@@ -15,6 +16,12 @@ body {
   background: var(--gov-white);
   color: var(--gov-blue);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 
@@ -59,14 +66,6 @@ body {
   color: var(--gov-blue) !important;
 }
 
-@font-face {
-  font-family: "Creato Display";
-  src: url("/fonts/CreatoDisplay-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);
@@ -77,5 +76,21 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scrollLeft 10s linear infinite;
+  animation: scrollLeft var(--ticker-duration, 18s) linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .notice-ticker {
+    --ticker-duration: 10s;
+  }
+}
+
+.notice-ticker {
+  --ticker-duration: 18s;
+}
+
+.ticker-track {
+  min-width: 200%;
 }

@@ -1,5 +1,9 @@
 import { notices } from "../data/notices";
 
+const sortedNotices = [...notices].sort(
+  (a, b) => new Date(b.date) - new Date(a.date)
+);
+
 const NoticeBoard = () => {
   return (
     <div className="w-[85%] mx-auto mt-10 mb-12 border overflow-hidden shadow-sm bg-gray-100">
@@ -11,7 +15,7 @@ const NoticeBoard = () => {
       </div>
 
       
-      {notices.map((item, index) => (
+      {sortedNotices.map((item, index) => (
         <div
           key={index}
           className="grid grid-cols-5 px-4 py-4 border-b last:border-b-0 bg-gray-100 hover:bg-gray-200 transition"

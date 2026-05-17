@@ -28,7 +28,7 @@ export default function Footer() {
 
             
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/nss_bitmesra/"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -71,22 +71,22 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="mt-3 space-y-1 text-sm text-white/90">
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://www.bitmesra.ac.in/" className="hover:text-white">
                   BIT MESRA
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://www.nss.gov.in/" className="hover:text-white">
                   NSS
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://www.india.gov.in/" className="hover:text-white">
                   Government of India
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://yas.nic.in/" className="hover:text-white">
                   Ministry of Youth Affairs and Sports
                 </a>
               </li>
