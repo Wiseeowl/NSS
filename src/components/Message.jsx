@@ -70,7 +70,7 @@ export default function Message() {
             
             <div className="mt-6 space-y-6">
               
-              <div className="flex items-start gap-5 rounded-[14px] border-2 border-black bg-white p-6 shadow-[0_8px_22px_rgba(0,0,0,0.20)]">
+              <div className="flex flex-col items-center gap-4 rounded-[14px] border-2 border-black bg-white p-6 text-center shadow-[0_8px_22px_rgba(0,0,0,0.20)] sm:flex-row sm:items-start sm:gap-5 sm:text-left">
                 <img
                   src="/Manna.png"
                   alt="Prof. Indranil Manna"
@@ -97,7 +97,7 @@ export default function Message() {
               </div>
 
               
-              <div className="flex items-start gap-5 rounded-[14px] border-2 border-black bg-white p-6 shadow-[0_8px_22px_rgba(0,0,0,0.20)]">
+              <div className="flex flex-col items-center gap-4 rounded-[14px] border-2 border-black bg-white p-6 text-center shadow-[0_8px_22px_rgba(0,0,0,0.20)] sm:flex-row sm:items-start sm:gap-5 sm:text-left">
                 <img
                   src="/Pandey.png"
                   alt="Dr. O.P. Pandey"
