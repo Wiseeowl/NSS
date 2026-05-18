@@ -58,7 +58,7 @@ function Events() {
                 </h3>
 
                 <p className="text-sm text-gray-600 mt-2 leading-relaxed border-l-2 border-l-[#F6170F] pl-3">
-                  Community engagement initiative by NSS.
+                  add discription
                 </p>
               </div>
 
