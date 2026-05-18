@@ -2,7 +2,7 @@ export const events = [
   {
     id: 1,
     name: "Blood Donation Camp",
-    image: "https://images.unsplash.com/photo-1615461066159-fea0960485d5?auto=format&fit=crop&w=800&q=80",
+    image: "public/BLOOD_CAMP.png",
   },
   {
     id: 2,
@@ -12,7 +12,7 @@ export const events = [
   {
     id: 3,
     name: "Cleanliness Drive",
-    image: "https://tse3.mm.bing.net/th/id/OIP.p0_67-XcGKfa9aUT-u-nVAHaGJ?rs=1&pid=ImgDetMain&o=7&rm=3",
+    image: "public/CLEANLINESS.png",
   },
   {
     id: 4,
