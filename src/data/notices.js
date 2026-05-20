@@ -1,52 +1,72 @@
 export const notices = [
   {
-    date: "12 Feb 2026",
-    title: "Blood Donation Camp 2026",
-    description: "Volunteers are invited to participate in the annual blood donation drive organized by NSS."
+    date: "15 August 2026",
+    title: "Prabhat Pheri",
+    description: "Celebrate Independence Day with a morning march promoting national pride, unity, and community spirit.",
   },
   {
-    date: "05 Mar 2026",
-    title: "Tree Plantation Drive",
-    description: "Join us in promoting environmental sustainability through our plantation initiative."
+    date: "11 April 2026",
+    title: "BDC",
+    description: "Join our Blood Donation Camp to help save lives. Every drop counts—be a hero, donate blood.",
   },
   {
-    date: "18 Mar 2026",
-    title: "Swachh Bharat Awareness Campaign",
-    description: "Volunteers required for cleanliness drive and awareness campaign in nearby villages."
+    date: "2 April 2026",
+    title: "Cleanliness Drive",
+    description: "A campus-wide cleanliness initiative to promote hygiene, sanitation awareness, and environmental responsibility.",
   },
   {
-    date: "02 Apr 2026",
-    title: "Health Checkup Camp",
-    description: "Free medical checkup camp organized in collaboration with local healthcare providers."
+    date: "31 January 2026",
+    title: "Cycle Marathon",
+    description: "Pedal for a cause! A cycling event promoting physical fitness, eco-friendly transport, and green living.",
   },
   {
-    date: "15 Apr 2026",
-    title: "Digital Literacy Workshop",
-    description: "Help bridge the digital divide by teaching basic computer skills to rural communities."
+    date: "26 January 2026",
+    title: "Prabhat Pheri",
+    description: "Commemorate Republic Day with a morning march to spread patriotic values and civic awareness.",
   },
   {
-    date: "28 Apr 2026",
-    title: "Women Empowerment Seminar",
-    description: "Participate in awareness sessions focusing on women's rights and opportunities."
+    date: "23 January 2026",
+    title: "Saraswati Puja",
+    description: "Celebrate Basant Panchami with traditional rituals, cultural performances, and community prayers.",
   },
   {
-    date: "10 May 2026",
-    title: "Village Education Initiative",
-    description: "Volunteers needed to assist in teaching and mentoring school children."
+    date: "21 November 2025",
+    title: "Unity March",
+    description: "A volunteer-led march organized to foster communal harmony, social peace, and collective responsibility.",
   },
   {
-    date: "22 May 2026",
-    title: "Food Distribution Drive",
-    description: "Join hands to distribute food packets to underprivileged communities."
+    date: "9 November 2025",
+    title: "BDC",
+    description: "Blood Donation Camp organized in collaboration with healthcare teams to support local blood banks.",
   },
   {
-    date: "05 Jun 2026",
-    title: "World Environment Day Celebration",
-    description: "Participate in events and activities promoting environmental conservation."
+    date: "15 August 2025",
+    title: "Prabhat Pheri",
+    description: "Marking Independence Day with an early morning march to honor our nation and foster unity.",
   },
   {
-    date: "18 Jun 2026",
-    title: "Road Safety Awareness Program",
-    description: "Help spread awareness about road safety rules and responsible driving."
-  }
+    date: "21 June 2025",
+    title: "Yoga Sangam",
+    description: "Celebrate International Yoga Day with guided sessions focused on physical health and mental well-being.",
+  },
+  {
+    date: "12 April 2025",
+    title: "BDC",
+    description: "A voluntary blood donation drive empowering students to contribute toward emergency healthcare needs.",
+  },
+  {
+    date: "3 February 2025",
+    title: "Saraswati Puja",
+    description: "Gather for Saraswati Puja to seek blessings for wisdom, learning, and artistic success.",
+  },
+  {
+    date: "26 January 2025",
+    title: "Prabhat Pheri",
+    description: "Kickstarting Republic Day celebrations with an energetic morning march across the campus.",
+  },
+  {
+    date: "2 October 2024",
+    title: "BDC",
+    description: "Honoring Gandhi Jayanti through community welfare with a mega voluntary blood donation drive.",
+  },
 ];
