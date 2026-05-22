@@ -151,16 +151,16 @@ export default function AboutUs() {
               <Link
                 key={domain.id}
                 to={`/activity/${domain.id}`}
-                className="group relative overflow-hidden rounded-md border border-[#D9DEE7] bg-white block no-underline"
+                className=" group relative overflow-hidden rounded-md border border-[#D9DEE7] bg-white block no-underline transition-all duration-200 ease-out hover:-translate-y-[2px] hover:shadow-sm hover:border-[#19366B]/40 active:translate-y-0 active:shadow-none"
               >
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={domain.img}
                     alt={domain.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/30" />
                   {/* Domain name badge overlay */}
                   <div className="absolute bottom-0 left-0 right-0 px-5 py-3">
                     <span className="text-white font-extrabold text-2xl tracking-wide uppercase drop-shadow">
@@ -174,7 +174,7 @@ export default function AboutUs() {
                   <p className="text-sm text-[#4B5563] leading-snug">{domain.tagline}</p>
                   <svg
                     viewBox="0 0 24 24"
-                    className="h-4 w-4 shrink-0 ml-3 text-[#19366B] transition-transform duration-200 group-hover:translate-x-1"
+                    className="h-4 w-4 shrink-0 ml-3 text-[#19366B]"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -184,9 +184,6 @@ export default function AboutUs() {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </div>
-
-                {/* Red bottom accent on hover */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#F6170F] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </Link>
             ))}
           </div>
