@@ -100,7 +100,7 @@ export default function Notices() {
                 className={`flex-1 py-2.5 text-sm font-medium text-center border-r border-[#D9DEE7] last:border-r-0 transition-colors ${
                   activeCategory === cat
                     ? "bg-[#F6170F] text-white"
-                    : "text-[#374151] hover:bg-[#F8FAFC]"
+                    : "text-[#374151] hover:bg-[#F65A57] hover:!text-white"
                 }`}
               >
                 {cat}
@@ -173,7 +173,7 @@ export default function Notices() {
                     className={`w-full text-left px-4 py-2.5 text-sm font-medium border-b border-[#E6EAF0] last:border-b-0 transition-colors ${
                       activeCategory === cat
                         ? "bg-[#F6170F] text-white"
-                        : "text-[#374151] hover:bg-[#F8FAFC]"
+                        : "text-[#374151] hover:bg-[#F65A57] hover:!text-white"
                     }`}
                   >
                     {cat}

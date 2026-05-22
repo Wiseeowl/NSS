@@ -126,7 +126,7 @@ export default function AboutUs() {
               {
                 name: "Education",
                 id: "education",
-                img: "/village.jpeg",
+                img: "/education.png",
                 tagline: "Bridging knowledge gaps in rural communities",
               },
               {
@@ -138,13 +138,13 @@ export default function AboutUs() {
               {
                 name: "Environment",
                 id: "environment",
-                img: "/new_environment.png",
+                img: "/environment.jpeg",
                 tagline: "Preserving nature through sustainable action",
               },
               {
                 name: "Health",
                 id: "health",
-                img: "/health.jpeg",
+                img: "/health.png",
                 tagline: "Promoting wellbeing across communities",
               },
             ].map((domain) => (
