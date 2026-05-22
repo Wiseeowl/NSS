@@ -15,7 +15,7 @@ const schemes = [
     title: "Ayushman Bharat (PM-JAY)",
     category: "Healthcare",
     categoryIcon: "HeartPulse",
-    link: "https://nha.gov.in/",
+    link: "https://pmjay.gov.in/",
     shortInfo:
       "World’s largest health insurance scheme offering coverage up to ₹5 lakhs per family for secondary and tertiary care."
   },
@@ -25,7 +25,7 @@ const schemes = [
     title: "Kanyashree Prakalpa",
     category: "Education",
     categoryIcon: "GraduationCap",
-    link: "#",
+    link: "https://www.wbkanyashree.gov.in/",
     shortInfo:
       "Financial assistance to support girls’ education and delay early marriage, improving social and economic outcomes."
   },
@@ -35,7 +35,7 @@ const schemes = [
     title: "Digital India Internship",
     category: "Skill Development",
     categoryIcon: "Laptop",
-    link: "#",
+    link: "https://intern.meity.gov.in/",
     shortInfo:
       "Internship opportunities for students to work on digital governance projects under MeitY."
   },
@@ -45,7 +45,7 @@ const schemes = [
     title: "Startup India Seed Fund",
     category: "Entrepreneurship",
     categoryIcon: "Rocket",
-    link: "#",
+    link: "https://seedfund.startupindia.gov.in/",
     shortInfo:
       "Financial support for startups to develop proof of concept, prototypes, and facilitate market entry."
   },
@@ -85,7 +85,7 @@ const schemes = [
     title: "Beti Bachao Beti Padhao",
     category: "Education",
     categoryIcon: "GraduationCap",
-    link: "https://wcd.nic.in/",
+    link: "https://www.myscheme.gov.in/",
     shortInfo:
       "Promotes education and welfare of the girl child across India."
   },
@@ -99,7 +99,6 @@ const schemes = [
     shortInfo:
       "Paid apprenticeship opportunities for students and diploma holders."
   },
-
   {
     id: 11,
     type: "State",
