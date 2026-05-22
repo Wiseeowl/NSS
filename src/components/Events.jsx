@@ -169,7 +169,7 @@ export default function Events() {
                   className={`flex-1 text-center py-2.5 text-sm font-medium transition-colors border-r border-[#D9DEE7] last:border-r-0 cursor-pointer ${
                     activeCategory === category
                       ? "bg-[#F6170F] text-white"
-                      : "text-[#374151] hover:bg-[#F8FAFC]"
+                      : "text-[#374151] hover:bg-[#F65A57] hover:!text-white"
                   }`}
                 >
                   {category}
@@ -212,7 +212,7 @@ export default function Events() {
                         className={`w-full text-left px-4 py-2 text-sm transition-colors cursor-pointer ${
                           activeCategory === category
                             ? "bg-[#F6170F] text-white"
-                            : "text-[#374151] hover:bg-[#F8FAFC]"
+                            : "text-[#374151] hover:bg-[#F65A57] hover:!text-white"
                         }`}
                       >
                         {category}
