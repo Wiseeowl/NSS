@@ -2,56 +2,105 @@ export const events = [
   {
     id: 1,
     name: "Blood Donation Camp",
-    image: "public/BLOOD_CAMP.png",
-    description: "Promoting voluntary blood donation and saving lives.",
+    image: "/BLOOD_CAMP.png",
+    category: "Health & Hygiene",
+    date: "2026-06-14",
+    location: "BITM Main Auditorium",
+    time: "10:00 AM - 04:00 PM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 98450 12345",
+    description: "Promoting voluntary blood donation and saving lives in collaboration with Red Cross.",
+    detailedDescription: "The annual Blood Donation Camp organized by NSS BITM in collaboration with the District Red Cross Blood Bank. Every drop counts! Join us in this noble cause to make a difference in someone's life. Free health check-ups (including Blood Grouping, HB Estimation, and Blood Pressure screening) will be provided to all donors. Certificates of appreciation and refreshments will be distributed."
   },
-
   {
     id: 2,
     name: "Village Awareness Camp",
-    image: "public/VILLAGE_AWARENESS.png",
-    description: "Spreading awareness and encouraging community engagement.",
+    image: "/VILLAGE_AWARENESS.png",
+    category: "Social Awareness & Rallies",
+    date: "2026-04-12",
+    location: "Kolur Village Community Center",
+    time: "09:00 AM - 01:00 PM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 94481 98765",
+    description: "Spreading awareness about central welfare schemes and encouraging community engagement.",
+    detailedDescription: "An intensive door-to-door awareness campaign was conducted in Kolur Village. Volunteers interacted with local residents to discuss social issues, government welfare schemes, basic sanitation, and financial literacy. Visual aids, street plays (Nukkad Natak), and interactive sessions were held to engage the villagers and address their concerns."
   },
-
   {
     id: 3,
     name: "Cleanliness Drive",
-    image: "public/CLEANLINESS.png",
-    description: "Working towards a cleaner and healthier environment.",
+    image: "/CLEANLINESS.png",
+    category: "Environment & Cleanliness",
+    date: "2026-03-22",
+    location: "BITM Campus and Surrounding Areas",
+    time: "08:00 AM - 11:30 AM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 91234 56789",
+    description: "Working towards a cleaner and healthier environment with waste segregation focus.",
+    detailedDescription: "Under the Swachh Bharat initiative, NSS volunteers successfully executed a cleanliness drive inside the BITM campus and the adjacent public roads. The drive focused on segregating plastic waste, clearing dried leaves, and raising awareness about garbage management and sanitation among local vendors."
   },
-
   {
     id: 4,
     name: "Prabhat Pheri",
-    image: "public/PRABHAT_PHERI.png",
-    description: "Morning rally promoting unity and social awareness.",
+    image: "/PRABHAT_PHERI.png",
+    category: "Social Awareness & Rallies",
+    date: "2026-01-26",
+    location: "From BITM Campus to Ballari Fort",
+    time: "06:30 AM - 08:30 AM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 99001 23456",
+    description: "Republic Day morning rally promoting national integration, unity and social awareness.",
+    detailedDescription: "On the occasion of Republic Day, NSS BITM organized a Prabhat Pheri (morning rally). Volunteers marched with banners and shouted slogans celebrating national integration, environmental preservation, and social unity. The rally concluded with the national flag hoisting ceremony at the BITM Main Ground."
   },
-
   {
     id: 5,
     name: "Health Awareness Camp",
-    image: "public/health_awareness.png",
-    description: "Creating awareness about health and hygiene.",
+    image: "/health_awareness.png",
+    category: "Health & Hygiene",
+    date: "2026-05-10",
+    location: "Venkateshwara Slum Area, Ballari",
+    time: "09:00 AM - 03:00 PM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 88844 55566",
+    description: "Creating awareness about health, hygiene, and distribution of wellness kits.",
+    detailedDescription: "A comprehensive health and hygiene awareness camp was set up to support underprivileged families. A team of doctors conducted free general health check-ups and pediatric consultations. NSS volunteers demonstrated proper hand-washing techniques, distributed hygiene kits (soaps, sanitizers, sanitary pads), and spoke on preventing seasonal vector-borne diseases like Dengue and Malaria."
   },
-
   {
     id: 6,
     name: "Village Education Program",
-    image: "public/VEP.png",
-    description: "Supporting education and learning for rural children.",
+    image: "/VEP.png",
+    category: "Education & Literacy",
+    date: "2026-06-20",
+    location: "Government Primary School, Kolur",
+    time: "10:00 AM - 01:30 PM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 97420 54321",
+    description: "Supporting primary education and digital literacy for rural children.",
+    detailedDescription: "This program aims to bridge the educational gap for rural students. NSS volunteers will conduct interactive workshops on science experiments, mathematics shortcuts, and basic computer applications. We will also be distributing stationery kits (notebooks, pens, drawing materials) and hosting storytelling and art sessions to make learning fun."
   },
-
   {
     id: 7,
     name: "Swachh Bharat Abhiyan",
-    image: "public/SWACH_BHARAT.JPG",
-    description: "Contributing to the Swachh Bharat cleanliness mission.",
+    image: "/SWACH_BHARAT.JPG",
+    category: "Environment & Cleanliness",
+    date: "2026-10-02",
+    location: "Ballari Railway Station & Public Park",
+    time: "07:30 AM - 12:00 PM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 98450 12345",
+    description: "Contributing to the national Swachh Bharat cleanliness and painting mission.",
+    detailedDescription: "A mega cleanliness and beautification drive planned for Gandhi Jayanti. NSS BITM volunteers will clean designated areas of the public railway station and central park. Activities include wall painting with social messages, setting up dustbins, and conducting street plays to encourage the general public not to litter."
   },
-
   {
     id: 8,
     name: "Cycle Marathon",
-    image: "public/Cycle_marathon.png",
-    description: "Promoting fitness and eco-friendly transportation.",
-  },
+    image: "/Cycle_marathon.png",
+    category: "Fitness & Rallies",
+    date: "2026-06-05",
+    location: "Starting point: BITM Campus Gate",
+    time: "06:00 AM - 08:30 AM",
+    coordinator: "Dr. O.P. Pandey",
+    contact: "+91 95355 66778",
+    description: "Promoting fitness, eco-friendly transportation, and environmental sustainability.",
+    detailedDescription: "An exciting cycle rally organized on World Environment Day to raise awareness about carbon emissions and promote cycling for a healthier lifestyle. The route covers 10 kilometers around Ballari city. T-shirts, energy drinks, and certificates will be provided to all participants. Bring your own bicycle and join the movement for a green future!"
+  }
 ];
