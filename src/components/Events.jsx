@@ -31,95 +31,32 @@ const CategoryTab = ({ category, isActive, onClick }) => {
 };
 
 const EventCard = ({ event, openModal, formatDate }) => {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [btnOffset, setBtnOffset] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const normalizedX = (x / rect.width) - 0.5;
-    const normalizedY = (y / rect.height) - 0.5;
-    
-    const tiltX = -normalizedY * 8; 
-    const tiltY = normalizedX * 8;
-    
-    setCoords({ x, y });
-    setTilt({ x: tiltX, y: tiltY });
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTilt({ x: 0, y: 0 });
-  };
-
-  const handleBtnMouseMove = (e) => {
-    const btn = e.currentTarget;
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    const pullX = (x / (rect.width / 2)) * 6;
-    const pullY = (y / (rect.height / 2)) * 6;
-    setBtnOffset({ x: pullX, y: pullY });
-  };
-
-  const handleBtnMouseLeave = () => {
-    setBtnOffset({ x: 0, y: 0 });
-  };
-
   return (
     <div
       onClick={() => openModal(event)}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform: isHovered
-          ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`
-          : "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
-        transition: isHovered 
-          ? "transform 0.1s ease-out, box-shadow 0.5s ease-out, border-color 0.5s ease-out" 
-          : "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
-      }}
-      className="group relative bg-white border border-[#19366b]/20 hover:border-[#19366b]/35 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-[#19366b]/12 flex flex-col h-full cursor-pointer select-none animate-fade-in"
+      className="group relative bg-white border border-[#19366b]/20 hover:border-[#19366b]/35 hover:-translate-y-1.5 hover:shadow-xl rounded-2xl overflow-hidden shadow-sm flex flex-col h-full cursor-pointer select-none transition-all duration-300 ease-out animate-fade-in"
     >
-      <div className="absolute top-0 left-0 h-[3px] bg-[#f6170f] w-0 group-hover:w-full transition-all duration-500 ease-out z-30" />
+      <div className="absolute top-0 left-0 h-[3px] bg-[#f6170f] w-0 group-hover:w-full transition-all duration-300 ease-out z-30" />
 
-      <div
-        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
-        style={{
-          background: `radial-gradient(350px circle at ${coords.x}px ${coords.y}px, rgba(25, 54, 107, 0.08) 0%, rgba(246, 23, 15, 0.035) 60%, transparent 100%)`
-        }}
-      />
-
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100 z-0">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
         <img
           src={event.image}
           alt={event.name}
-          className="w-full h-full object-cover transition-all duration-750 ease-out group-hover:scale-108 saturate-90 group-hover:saturate-110 opacity-95 group-hover:opacity-100"
+          className="w-full h-full object-cover transition-all duration-300 ease-out opacity-95 group-hover:opacity-100"
         />
-        <div className="absolute top-3.5 left-3.5 z-20 backdrop-blur-md bg-white/75 border border-white/35 text-[#19366b] text-[9.5px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#f6170f] group-hover:to-[#19366b] group-hover:text-white group-hover:border-transparent group-hover:scale-105 group-hover:shadow-[#f6170f]/20">
+        <div className="absolute top-3 left-3 bg-[#19366b] group-hover:bg-[#f6170f] text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm transition-all duration-300">
           {event.category}
         </div>
       </div>
 
-      <div className="p-6 flex flex-col flex-grow relative z-20 group-hover:bg-gradient-to-b group-hover:from-white group-hover:to-zinc-50/10 transition-all duration-300">
+      <div className="p-6 flex flex-col flex-grow group-hover:bg-gradient-to-b group-hover:from-white group-hover:to-zinc-50/10 transition-all duration-300">
         <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-zinc-400 mb-3.5">
-          <span className="flex items-center gap-1.5 bg-zinc-50/70 border border-zinc-100 group-hover:border-[#f6170f]/15 group-hover:bg-[#f6170f]/5 text-zinc-500 group-hover:text-[#f6170f] px-2.5 py-1 rounded-lg transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-0.5 shadow-sm group-hover:shadow-[0_2px_8px_rgba(246,23,15,0.05)]">
-            <Calendar className="h-3.5 w-3.5 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110" />
+          <span className="flex items-center gap-1.5 bg-zinc-50 group-hover:bg-[#f6170f]/5 text-zinc-500 group-hover:text-[#f6170f] px-2.5 py-1 rounded-lg transition-all duration-300 shadow-sm">
+            <Calendar className="h-3.5 w-3.5" />
             {formatDate(event.date)}
           </span>
-          <span className="flex items-center gap-1.5 bg-zinc-50/70 border border-zinc-100 group-hover:border-[#19366b]/15 group-hover:bg-[#19366b]/5 text-zinc-500 group-hover:text-[#19366b] px-2.5 py-1 rounded-lg transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-0.5 shadow-sm group-hover:shadow-[0_2px_8px_rgba(25,54,107,0.05)] max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
-            <MapPin className="h-3.5 w-3.5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-110" />
+          <span className="flex items-center gap-1.5 bg-zinc-50 group-hover:bg-[#19366b]/5 text-zinc-500 group-hover:text-[#19366b] px-2.5 py-1 rounded-lg transition-all duration-300 shadow-sm max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
+            <MapPin className="h-3.5 w-3.5" />
             {event.location}
           </span>
         </div>
@@ -128,7 +65,7 @@ const EventCard = ({ event, openModal, formatDate }) => {
           {event.name}
         </h3>
 
-        <p className="text-zinc-650 text-sm leading-relaxed mb-6 border-l-2 border-[#f6170f] group-hover:border-l-[3.5px] group-hover:border-l-[#19366b] pl-3 transition-all duration-500 ease-out line-clamp-3">
+        <p className="text-zinc-650 text-sm leading-relaxed mb-6 border-l-2 border-[#f6170f] group-hover:border-l-[3.5px] group-hover:border-l-[#19366b] pl-3 transition-all duration-300 line-clamp-3">
           {event.description}
         </p>
 
@@ -140,19 +77,8 @@ const EventCard = ({ event, openModal, formatDate }) => {
             </span>
           </span>
           
-          <div
-            onMouseMove={handleBtnMouseMove}
-            onMouseLeave={handleBtnMouseLeave}
-            style={{
-              transform: `translate3d(${btnOffset.x}px, ${btnOffset.y}px, 0)`,
-              transition: btnOffset.x === 0 && btnOffset.y === 0 ? "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)" : "none"
-            }}
-            className="w-7 h-7 rounded-full bg-zinc-50 border border-[#19366b]/20 flex items-center justify-center text-[#19366b] group-hover:bg-[#f6170f] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm"
-          >
-            <div className="relative overflow-hidden w-3.5 h-3.5 flex items-center justify-center">
-              <ChevronRight className="absolute h-3.5 w-3.5 transition-transform duration-300 translate-x-0 group-hover:translate-x-full" />
-              <ChevronRight className="absolute h-3.5 w-3.5 transition-transform duration-300 -translate-x-full group-hover:translate-x-0" />
-            </div>
+          <div className="w-7 h-7 rounded-full bg-zinc-50 border border-zinc-200/80 flex items-center justify-center text-[#19366b] group-hover:bg-[#f6170f] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
+            <ChevronRight className="h-3.5 w-3.5" />
           </div>
         </div>
       </div>
@@ -208,15 +134,12 @@ export default function Events() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl">
-          <span className="bg-[#f6170f] text-white text-[10px] sm:text-xs font-bold px-3.5 sm:px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
-            NSS BIT Mesra
-          </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-wide uppercase mt-3.5 sm:mt-4 mb-3 sm:mb-4 drop-shadow-md">
             Events & Activities
           </h1>
-          <div className="w-16 sm:w-24 h-0.5 sm:h-1 bg-[#f6170f] mx-auto rounded-full mb-3 sm:mb-4" />
+          
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-200 font-medium max-w-2xl mx-auto leading-relaxed">
-            Discover, participate, and make a difference. Engage with our student-led community initiatives and welfare campaigns.
+            Engage With Our Community Initiatives
           </p>
         </div>
       </div>
