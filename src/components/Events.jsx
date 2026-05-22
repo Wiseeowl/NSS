@@ -15,19 +15,21 @@ const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleDateString("en-US", options);
 };
 
-const CategoryTab = ({ category, isActive, onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`px-5 text-xs font-bold uppercase tracking-wider transition-all duration-200 h-full flex items-center justify-center cursor-pointer whitespace-nowrap ${
-        isActive
-          ? "bg-[#19366b] text-white"
-          : "bg-white text-[#19366b] hover:bg-zinc-50 hover:text-[#19366b]"
-      }`}
-    >
-      {category}
-    </button>
-  );
+const inferCategory = (name) => {
+  const lowercaseName = name.toLowerCase();
+  if (/blood|health|medical|checkup/.test(lowercaseName)) {
+    return "Health";
+  }
+  if (/tree|environment|swachh|clean|plantation/.test(lowercaseName)) {
+    return "Environment";
+  }
+  if (/education|digital|literacy|teach|school/.test(lowercaseName)) {
+    return "Education";
+  }
+  if (/food|distribution|community|village|clothes/.test(lowercaseName)) {
+    return "Community";
+  }
+  return "Awareness";
 };
 
 const EventCard = ({ event, openModal, formatDate }) => {
@@ -88,35 +90,40 @@ const EventCard = ({ event, openModal, formatDate }) => {
 
 export default function Events() {
   const [activeEvent, setActiveEvent] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const categories = [
     "All",
-    "Health & Hygiene",
-    "Social Awareness & Rallies",
-    "Environment & Cleanliness",
-    "Education & Literacy",
-    "Fitness & Rallies"
+    "Health",
+    "Environment",
+    "Education",
+    "Community",
+    "Awareness"
   ];
 
+  const enrichedEvents = useMemo(() => {
+    return events.map((event) => ({
+      ...event,
+      category: inferCategory(event.name)
+    }));
+  }, []);
+
   const filteredEvents = useMemo(() => {
-    return events
+    return enrichedEvents
       .filter((event) => {
         const matchesCategory =
-          selectedCategory === "All" || event.category === selectedCategory;
+          activeCategory === "All" || event.category === activeCategory;
 
-        const matchesQuery =
-          event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          (event.detailedDescription &&
-            event.detailedDescription.toLowerCase().includes(searchQuery.toLowerCase())) ||
-          event.location.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesQuery = event.name
+          .toLowerCase()
+          .includes(search.toLowerCase());
 
         return matchesCategory && matchesQuery;
       })
       .sort((a, b) => new Date(b.date) - new Date(a.date));
-  }, [searchQuery, selectedCategory]);
+  }, [enrichedEvents, search, activeCategory]);
 
   const openModal = (event) => {
     setActiveEvent(event);
@@ -124,7 +131,6 @@ export default function Events() {
 
   return (
     <div className="w-full min-h-screen bg-zinc-50 font-sans pb-24 text-zinc-800">
-
       <div className="relative w-full h-[35vh] sm:h-[45vh] lg:h-[50vh] min-h-[260px] sm:min-h-[320px] lg:min-h-[380px] overflow-hidden flex items-center justify-center">
         <img
           src="/health.jpeg"
@@ -145,56 +151,95 @@ export default function Events() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 relative z-20">
+        <div className="mb-8">
+          <div className="hidden sm:flex items-center justify-between gap-4">
+            <div className="border border-[#D9DEE7] rounded-md bg-white w-64 flex items-center pl-3">
+              <Search size={14} color="#9CA3AF" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search events"
+                className="flex-1 pl-3 pr-4 py-2.5 text-sm text-[#1F2937] bg-transparent focus:outline-none"
+              />
+            </div>
 
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-white border border-zinc-200 rounded-2xl p-3.5 sm:p-4 mb-8 sm:mb-10 shadow-sm">
-          <div className="relative flex-grow max-w-full lg:max-w-xl">
-            <span className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-zinc-400" />
-            </span>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search events"
-              className="w-full pl-10 pr-4 py-2 bg-zinc-50 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#19366b]/20 focus:border-[#19366b] transition-all h-10"
-            />
+            <div className="flex-1 flex border border-[#D9DEE7] rounded-md bg-white overflow-hidden">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`flex-1 text-center py-2.5 text-sm font-medium transition-colors border-r border-[#D9DEE7] last:border-r-0 cursor-pointer ${
+                    activeCategory === category
+                      ? "bg-[#F6170F] text-white"
+                      : "text-[#374151] hover:bg-[#F8FAFC]"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="relative overflow-hidden w-full lg:w-auto rounded-lg">
-            <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-white to-transparent pointer-events-none z-10 lg:hidden" />
-            <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 lg:hidden" />
+          <div className="flex sm:hidden flex-col gap-3 relative">
+            <div className="border border-[#D9DEE7] rounded-md bg-white w-full flex items-center pl-3">
+              <Search size={14} color="#9CA3AF" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search events"
+                className="flex-1 pl-3 pr-4 py-2.5 text-sm text-[#1F2937] bg-transparent focus:outline-none"
+              />
+            </div>
 
-            <div className="overflow-x-auto scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full lg:w-auto">
-              <div className="flex items-center border border-zinc-200 rounded-lg bg-white overflow-hidden divide-x divide-zinc-200 h-10 min-w-max">
-                {categories.map((cat) => (
-                  <CategoryTab
-                    key={cat}
-                    category={cat}
-                    isActive={selectedCategory === cat}
-                    onClick={() => setSelectedCategory(cat)}
-                  />
-                ))}
-              </div>
+            <div className="relative">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="w-full px-4 py-2.5 text-sm font-medium border border-[#D9DEE7] rounded-md bg-white text-[#374151] flex justify-between items-center cursor-pointer"
+              >
+                <span>{activeCategory === "All" ? "Filter" : activeCategory}</span>
+                <span className="text-[10px] text-[#6B7280]">▼</span>
+              </button>
+
+              {menuOpen && (
+                <div className="absolute right-0 mt-1 w-44 border border-[#D9DEE7] rounded-md bg-white shadow-md z-20">
+                  <div className="py-1">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => {
+                          setActiveCategory(category);
+                          setMenuOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-sm transition-colors cursor-pointer ${
+                          activeCategory === category
+                            ? "bg-[#F6170F] text-white"
+                            : "text-[#374151] hover:bg-[#F8FAFC]"
+                        }`}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-[#1F2937]">
+            {activeCategory === "All" ? "All Events" : activeCategory}
+          </h2>
+          <span className="text-sm text-[#6B7280]">
+            Showing {filteredEvents.length} {filteredEvents.length === 1 ? "event" : "events"}
+          </span>
+        </div>
+
         {filteredEvents.length === 0 ? (
-          <div className="text-center py-16 bg-white border border-zinc-200 rounded-2xl shadow-sm max-w-xl mx-auto mt-6">
-            <Search className="h-10 w-10 text-zinc-350 mx-auto mb-3 text-[#19366b]/40" />
-            <h3 className="text-lg font-bold text-[#19366b] mb-1">No Events Found</h3>
-            <p className="text-zinc-500 text-sm max-w-xs mx-auto">
-              We couldn't find any events matching your search or category selection. Try clearing your filters or typing a different query.
-            </p>
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setSelectedCategory("All");
-              }}
-              className="mt-5 bg-[#19366b] hover:bg-[#122850] text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-all cursor-pointer shadow-sm"
-            >
-              Clear All Filters
-            </button>
+          <div className="text-center text-[#6B7280] py-20">
+            No events match your search.
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -208,14 +253,11 @@ export default function Events() {
             ))}
           </div>
         )}
-
       </div>
 
       {activeEvent && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-3.5 sm:p-6 transition-all animate-fade-in">
-
           <div className="bg-white rounded-2xl sm:rounded-3xl max-w-[95vw] sm:max-w-2xl md:max-w-3xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative animate-scale-up border border-zinc-200">
-
             <button
               onClick={() => setActiveEvent(null)}
               className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full backdrop-blur-sm transition-all focus:outline-none cursor-pointer"
@@ -225,7 +267,6 @@ export default function Events() {
             </button>
 
             <div className="overflow-y-auto flex-grow scrollbar-thin">
-
               <div className="relative h-44 sm:h-64 md:h-80 w-full bg-zinc-100">
                 <img
                   src={activeEvent.image}
@@ -245,7 +286,6 @@ export default function Events() {
               </div>
 
               <div className="p-4 sm:p-6 md:p-8">
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 bg-zinc-50 border border-zinc-150 p-4 sm:p-5 rounded-xl sm:rounded-2xl mb-5 sm:mb-6 text-xs sm:text-sm text-zinc-700">
                   <div className="flex items-start gap-2.5 sm:gap-3">
                     <Calendar className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-[#f6170f] shrink-0 mt-0.5" />
@@ -285,14 +325,11 @@ export default function Events() {
                     {activeEvent.detailedDescription || activeEvent.description}
                   </p>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       )}
-
     </div>
   );
 }
