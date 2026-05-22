@@ -53,9 +53,9 @@ export default function Notices() {
     <div className="w-full min-h-screen bg-[#F8FAFC] font-sans">
       <div className="relative w-full h-[60vh] min-h-[450px] overflow-hidden">
         <img
-          src="/BACKGROUND.png"
+          src="/notice.jpg"
           alt="Notices"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[center_73%]"
         />
 
         <div className="absolute inset-0 bg-black/60" />
