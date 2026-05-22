@@ -29,7 +29,6 @@ function SchemeCard({ scheme }) {
       transition-all duration-200 ease-out
       hover:-translate-y-[2px]
       hover:shadow-sm
-      hover:border-[#19366B]/40
 
       active:translate-y-0
       active:shadow-none

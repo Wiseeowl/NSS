@@ -36,50 +36,47 @@ const EventCard = ({ event, openModal, formatDate }) => {
   return (
     <div
       onClick={() => openModal(event)}
-      className="group relative bg-white border border-[#19366b]/20 hover:border-[#19366b]/35 hover:-translate-y-1.5 hover:shadow-xl rounded-2xl overflow-hidden shadow-sm flex flex-col h-full cursor-pointer select-none transition-all duration-300 ease-out animate-fade-in"
+      className="group relative bg-white border border-[#19366b]/20 hover:-translate-y-[2px] hover:shadow-sm active:translate-y-0 active:shadow-none rounded-2xl overflow-hidden shadow-sm flex flex-col h-full cursor-pointer select-none transition-all duration-200 ease-out animate-fade-in"
     >
-      <div className="absolute top-0 left-0 h-[3px] bg-[#f6170f] w-0 group-hover:w-full transition-all duration-300 ease-out z-30" />
+      
 
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
         <img
           src={event.image}
           alt={event.name}
-          className="w-full h-full object-cover transition-all duration-300 ease-out opacity-95 group-hover:opacity-100"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute top-3 left-3 bg-[#19366b] group-hover:bg-[#f6170f] text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm transition-all duration-300">
+        <div className="absolute top-3 left-3 bg-[#19366b] text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
           {event.category}
         </div>
       </div>
 
-      <div className="p-6 flex flex-col flex-grow group-hover:bg-gradient-to-b group-hover:from-white group-hover:to-zinc-50/10 transition-all duration-300">
+      <div className="p-6 flex flex-col flex-grow">
         <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-zinc-400 mb-3.5">
-          <span className="flex items-center gap-1.5 bg-zinc-50 group-hover:bg-[#f6170f]/5 text-zinc-500 group-hover:text-[#f6170f] px-2.5 py-1 rounded-lg transition-all duration-300 shadow-sm">
+          <span className="flex items-center gap-1.5 bg-zinc-50 text-zinc-500 px-2.5 py-1 rounded-lg shadow-sm">
             <Calendar className="h-3.5 w-3.5" />
             {formatDate(event.date)}
           </span>
-          <span className="flex items-center gap-1.5 bg-zinc-50 group-hover:bg-[#19366b]/5 text-zinc-500 group-hover:text-[#19366b] px-2.5 py-1 rounded-lg transition-all duration-300 shadow-sm max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
+          <span className="flex items-center gap-1.5 bg-zinc-50 text-zinc-500 px-2.5 py-1 rounded-lg shadow-sm max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
             <MapPin className="h-3.5 w-3.5" />
             {event.location}
           </span>
         </div>
 
-        <h3 className="text-lg font-bold text-[#19366b] group-hover:text-[#f6170f] transition-colors mb-3 leading-snug">
+        <h3 className="text-lg font-bold text-[#19366b] mb-3 leading-snug">
           {event.name}
         </h3>
 
-        <p className="text-zinc-650 text-sm leading-relaxed mb-6 border-l-2 border-[#f6170f] group-hover:border-l-[3.5px] group-hover:border-l-[#19366b] pl-3 transition-all duration-300 line-clamp-3">
+        <p className="text-zinc-650 text-sm leading-relaxed mb-6 border-l-2 border-[#f6170f] pl-3 line-clamp-3">
           {event.description}
         </p>
 
         <div className="mt-auto pt-4 border-t border-zinc-100 flex items-center justify-between">
-          <span className="text-xs font-bold text-[#19366b] flex items-center gap-1 group-hover:text-[#f6170f] transition-all">
-            <span className="relative overflow-hidden pb-0.5">
-              View Details
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#f6170f] transition-all duration-300 group-hover:w-full"></span>
-            </span>
+          <span className="text-xs font-bold text-[#19366b] flex items-center gap-1 group-hover:underline underline-offset-4">
+            View Details
           </span>
           
-          <div className="w-7 h-7 rounded-full bg-zinc-50 border border-zinc-200/80 flex items-center justify-center text-[#19366b] group-hover:bg-[#f6170f] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
+          <div className="w-7 h-7 rounded-full bg-zinc-50 border border-zinc-200/80 flex items-center justify-center text-[#19366b] shadow-sm">
             <ChevronRight className="h-3.5 w-3.5" />
           </div>
         </div>
