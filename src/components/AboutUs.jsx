@@ -4,43 +4,22 @@ export default function AboutUs() {
   return (
     <section id="about" className="w-full">
       
-      <div className="relative w-full">
-        
+      <div className="relative w-full h-[60vh] min-h-[450px] overflow-hidden">
         <img
-          src="/society.jpeg"
+          src="/aboutus.jpeg"
           alt="NSS BIT Mesra"
-          className="h-[420px] w-full object-cover object-center sm:h-[520px]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_40%]"
           draggable="false"
         />
-
-        
-        <div className="absolute inset-0 bg-black/35" />
-
-        
-        <div className="absolute inset-0 flex items-start justify-center">
-          <div className="mt-14 text-center sm:mt-16">
-            <h1
-              className={["px-4", "text-white", "font-extrabold", "tracking-[0.18em]", "text-4xl sm:text-6xl md:text-7xl",].join(" ")}
-              style={{
-                fontFamily: `"Creato Display", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif`,
-                textShadow: "0 2px 10px rgba(255,255,255,0.35), 0 8px 30px rgba(0,0,0,0.55)",
-              }}
-            >
-              ABOUT US
-            </h1>
-
-            <p
-              className={["mt-5", "text-white", "font-semibold sm:font-bold", "tracking-[0.40em]", "text-base sm:text-2xl md:text-3xl",].join(" ")}
-              style={{
-                fontFamily: `"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif`,
-                textShadow: "0 2px 14px rgba(0,0,0,0.55)",
-              }}
-            >
-              NSS BIT MESRA
-            </p>
-          </div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-widest uppercase">
+            About Us
+          </h1>
+          <p className="mt-4 text-lg sm:text-xl text-white font-medium tracking-wide">
+            National Service Scheme · BIT Mesra
+          </p>
         </div>
-        <div className="h-[4px] w-full bg-[#F6170F]" />
       </div>
 
       <div className="w-full px-4 py-16 max-w-6xl mx-auto">
@@ -133,27 +112,78 @@ export default function AboutUs() {
         
         
         <div className="mb-12">
-          <h3 className="text-4xl font-extrabold text-[#19366b] mb-8 text-center" style={{ fontFamily: '"Creato Display", sans-serif' }}>
-            Explore Our Domains
-          </h3>
-          <div className="flex flex-col gap-4 max-w-2xl mx-auto">
+          {/* Section header */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px flex-1 bg-[#D9DEE7]" />
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#6B7280] shrink-0">
+              Explore Our Domains
+            </h3>
+            <div className="h-px flex-1 bg-[#D9DEE7]" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
-              { name: "Education", id: "education" },
-              { name: "Society", id: "society" },
-              { name: "Environment", id: "environment" },
-              { name: "Health", id: "health" }
+              {
+                name: "Education",
+                id: "education",
+                img: "/education.png",
+                tagline: "Bridging knowledge gaps in rural communities",
+              },
+              {
+                name: "Society",
+                id: "society",
+                img: "/society.jpeg",
+                tagline: "Empowering people through outreach & awareness",
+              },
+              {
+                name: "Environment",
+                id: "environment",
+                img: "/environment.jpeg",
+                tagline: "Preserving nature through sustainable action",
+              },
+              {
+                name: "Health",
+                id: "health",
+                img: "/health.png",
+                tagline: "Promoting wellbeing across communities",
+              },
             ].map((domain) => (
               <Link
                 key={domain.id}
                 to={`/activity/${domain.id}`}
-                className="bg-gray-100 hover:bg-white rounded-xl p-6 flex justify-between items-center shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-200 group cursor-pointer no-underline"
+                className=" group relative overflow-hidden rounded-md border border-[#D9DEE7] bg-white block no-underline transition-all duration-200 ease-out hover:-translate-y-[2px] hover:shadow-sm hover:border-[#19366B]/40 active:translate-y-0 active:shadow-none"
               >
-                <span className="text-xl font-medium text-[#19366b] group-hover:text-[#F6170F] transition-colors">
-                  {domain.name}
-                </span>
-                <span className="text-[#19366b] group-hover:text-[#F6170F] transform group-hover:translate-x-1 transition-all duration-300 text-2xl">
-                  &gt;
-                </span>
+                {/* Image */}
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={domain.img}
+                    alt={domain.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30" />
+                  {/* Domain name badge overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 px-5 py-3">
+                    <span className="text-white font-extrabold text-2xl tracking-wide uppercase drop-shadow">
+                      {domain.name}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Footer row */}
+                <div className="flex items-center justify-between px-5 py-3 border-t border-[#E6EAF0]">
+                  <p className="text-sm text-[#4B5563] leading-snug">{domain.tagline}</p>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4 shrink-0 ml-3 text-[#19366B]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
               </Link>
             ))}
           </div>

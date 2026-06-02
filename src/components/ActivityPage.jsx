@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { activities } from '../components/data/activities';
+import { activities } from '../data/activities';
 
 export default function ActivityPage() {
     const { domainId } = useParams();

@@ -1,52 +1,72 @@
 export const notices = [
   {
-    date: "12 Feb 2026",
-    title: "Blood Donation Camp 2026",
-    description: "Volunteers are invited to participate in the annual blood donation drive organized by NSS."
+    date: "15 August 2026",
+    title: "Prabhat Pheri",
+    description: "An early morning march organized to mark Independence Day, fostering patriotic values, social unity, and community awareness across the campus.",
   },
   {
-    date: "05 Mar 2026",
-    title: "Tree Plantation Drive",
-    description: "Join us in promoting environmental sustainability through our plantation initiative."
+    date: "11 April 2026",
+    title: "Blood Donation Camp",
+    description: "Volunteers and students are invited to participate in the voluntary blood donation drive to support healthcare emergency services and save lives.",
   },
   {
-    date: "18 Mar 2026",
-    title: "Swachh Bharat Awareness Campaign",
-    description: "Volunteers required for cleanliness drive and awareness campaign in nearby villages."
+    date: "2 April 2026",
+    title: "Swachhata Abhiyan",
+    description: "A comprehensive cleanliness and sanitation initiative conducted on campus to promote hygiene standards and collective social responsibility.",
   },
   {
-    date: "02 Apr 2026",
-    title: "Health Checkup Camp",
-    description: "Free medical checkup camp organized in collaboration with local healthcare providers."
+    date: "31 January 2026",
+    title: "Cycle Marathon",
+    description: "A cycling event organized to promote physical fitness, environmental sustainability, and the adoption of eco-friendly modes of transportation.",
   },
   {
-    date: "15 Apr 2026",
-    title: "Digital Literacy Workshop",
-    description: "Help bridge the digital divide by teaching basic computer skills to rural communities."
+    date: "26 January 2026",
+    title: "Prabhat Pheri",
+    description: "A morning awareness march conducted on Republic Day to spread constitutional values, civic responsibility, and national pride.",
   },
   {
-    date: "28 Apr 2026",
-    title: "Women Empowerment Seminar",
-    description: "Participate in awareness sessions focusing on women's rights and opportunities."
+    date: "23 January 2026",
+    title: "Saraswati Puja",
+    description: "Traditional campus celebration featuring cultural activities and community prayers to observe the auspicious occasion of Saraswati Puja.",
   },
   {
-    date: "10 May 2026",
-    title: "Village Education Initiative",
-    description: "Volunteers needed to assist in teaching and mentoring school children."
+    date: "21 November 2025",
+    title: "Unity March",
+    description: "An institutional march organized by volunteers to promote communal harmony, national integration, and shared social peace.",
   },
   {
-    date: "22 May 2026",
-    title: "Food Distribution Drive",
-    description: "Join hands to distribute food packets to underprivileged communities."
+    date: "9 November 2025",
+    title: "Blood Donation Camp",
+    description: "A voluntary healthcare drive conducted in collaboration with local medical authorities to meet the requirements of regional blood banks.",
   },
   {
-    date: "05 Jun 2026",
-    title: "World Environment Day Celebration",
-    description: "Participate in events and activities promoting environmental conservation."
+    date: "15 August 2025",
+    title: "Prabhat Pheri",
+    description: "An early morning commemorative march held on Independence Day to honor the national legacy and engage community members.",
   },
   {
-    date: "18 Jun 2026",
-    title: "Road Safety Awareness Program",
-    description: "Help spread awareness about road safety rules and responsible driving."
-  }
+    date: "21 June 2025",
+    title: "Yoga Sangam",
+    description: "An institutional gathering to celebrate International Yoga Day, emphasizing physical fitness, mental wellness, and holistic health practices.",
+  },
+  {
+    date: "12 April 2025",
+    title: "Blood Donation Camp",
+    description: "A campus welfare initiative empowering students and staff to contribute toward community healthcare through voluntary blood donations.",
+  },
+  {
+    date: "2 February 2025",
+    title: "Saraswati Puja",
+    description: "Annual campus prayers and cultural events organized to mark Saraswati Puja and celebrate values of learning, art, and wisdom.",
+  },
+  {
+    date: "26 January 2025",
+    title: "Prabhat Pheri",
+    description: "A volunteer-driven morning march organized to celebrate Republic Day and enhance civic awareness among the students.",
+  },
+  {
+    date: "2 October 2024",
+    title: "Blood Donation Camp",
+    description: "A mega blood donation drive organized on the occasion of Gandhi Jayanti as a tribute to community service and social welfare.",
+  },
 ];
