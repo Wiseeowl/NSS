@@ -11,7 +11,7 @@ export default function AboutUs() {
           className="absolute inset-0 w-full h-full object-cover object-[center_40%]"
           draggable="false"
         />
-        <div className="absolute inset-0 bg-[#0D1B36]/70 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#0D1B36]/70" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-[Outfit] text-white tracking-tight uppercase">
             About Us
@@ -195,4 +195,4 @@ export default function AboutUs() {
       </div>
     </section>
   );
-}
+}

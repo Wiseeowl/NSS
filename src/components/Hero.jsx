@@ -43,7 +43,7 @@ export default function Hero() {
           draggable="false"
         />
         {/* Deep contrast overlay for brand feel */}
-        <div className="absolute inset-0 bg-[#0D1B36]/20 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#0D1B36]/20" />
       </div>
     </section>
   );

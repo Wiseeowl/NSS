@@ -21,7 +21,7 @@ function GovernmentSchemes() {
         />
 
         
-        <div className="absolute inset-0 bg-[#0D1B36]/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#0D1B36]/80" />
 
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">

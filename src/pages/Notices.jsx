@@ -58,7 +58,7 @@ export default function Notices() {
           className="absolute inset-0 w-full h-full object-cover object-[center_73%]"
         />
 
-        <div className="absolute inset-0 bg-navy/70 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-navy/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-90" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">

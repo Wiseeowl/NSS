@@ -137,7 +137,7 @@ export default function Events() {
           alt="NSS Events"
           className="absolute inset-0 w-full h-full object-cover select-none"
         />
-        <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-navy/80" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-80" />
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl">
