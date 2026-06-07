@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
+
 function NavItem({ label, to, onClick }) {
   return (
     <NavLink
@@ -12,12 +13,11 @@ function NavItem({ label, to, onClick }) {
           "text-center",
           "block",
           "px-4 py-3 sm:px-6",
-          "text-white",
-          "text-[12px] sm:text-sm font-semibold uppercase",
+          "text-[12px] sm:text-sm font-semibold uppercase font-display",
           "transition-colors duration-200 ease-out",
-          "hover:text-white",
-          "hover:bg-[#F65A57]",
-          isActive ? "bg-[#F6170F]" : "",
+          "hover:text-crimson",
+          "hover:bg-whisper",
+          isActive ? "text-crimson bg-whisper/50" : "text-charcoal",
         ].join(" ")
       }
     >
@@ -41,30 +41,28 @@ export default function Navbar() {
   );
 
   return (
-      <div className="w-full px-0 pt-0">
-        <div className="w-full overflow-hidden bg-white ring-1 ring-slate-200 shadow-[0_10px_40px_rgba(0,0,0,0.10)]">
-
+      <header className="sticky top-0 z-50 w-full bg-canvas/80 backdrop-blur-md shadow-sm border-b border-whisper transition-all duration-300">
+        <div className="w-full">
           
-          <div className="bg-white px-4 py-4 sm:px-10 sm:py-6">
+          <div className="px-4 py-3 sm:px-8 sm:py-4 max-w-7xl mx-auto">
             <div className="flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 sm:gap-6">
-              <img src="/logos/nss_logo.png" className="h-10 sm:h-20 w-auto object-contain" />
-              <img src="/logos/mybharat-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
-              <img src="/logos/yas-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
-              <img src="/logos/viksit-bharat-logo 1.png" className="h-9 sm:h-16 w-auto object-contain" />
-              <img src="/logos/digital-india 1.png" className="h-8 sm:h-14 w-auto object-contain" />
-              <img src="/logos/bit_mesra.png" className="h-10 sm:h-20 w-auto object-contain" />
+              <img src="/logos/nss_logo.png" className="h-10 sm:h-16 w-auto object-contain" alt="NSS Logo" />
+              <img src="/logos/mybharat-logo 1.png" className="h-9 sm:h-12 w-auto object-contain" alt="My Bharat" />
+              <img src="/logos/yas-logo 1.png" className="h-9 sm:h-12 w-auto object-contain" alt="YAS" />
+              <img src="/logos/viksit-bharat-logo 1.png" className="h-9 sm:h-12 w-auto object-contain" alt="Viksit Bharat" />
+              <img src="/logos/digital-india 1.png" className="h-8 sm:h-10 w-auto object-contain" alt="Digital India" />
+              <img src="/logos/bit_mesra.png" className="h-10 sm:h-16 w-auto object-contain" alt="BIT Mesra" />
             </div>
           </div>
 
-          
-          <div className="relative w-full bg-[#19366b]">
+          <div className="relative w-full border-t border-whisper bg-canvas/50">
             <div className="flex items-center justify-between px-4 py-3 sm:hidden">
-              <span className="text-sm font-semibold uppercase tracking-wide text-white">
+              <span className="text-sm font-semibold uppercase tracking-wide text-charcoal font-display">
                 Menu
               </span>
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-md border border-white/40 p-2 text-white hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md border border-whisper p-2 text-charcoal hover:bg-whisper hover:text-crimson transition-colors"
                 aria-label="Toggle navigation"
                 aria-expanded={isOpen}
                 onClick={() => setIsOpen((open) => !open)}
@@ -87,14 +85,14 @@ export default function Navbar() {
               </button>
             </div>
 
-            <nav className="hidden items-center justify-between sm:flex">
+            <nav className="hidden items-center justify-between sm:flex max-w-7xl mx-auto">
               {nav.map((item) => (
                 <NavItem key={item.label} {...item} />
               ))}
             </nav>
 
             {isOpen && (
-              <nav className="flex flex-col border-t border-white/20 sm:hidden">
+              <nav className="flex flex-col border-t border-whisper sm:hidden bg-canvas">
                 {nav.map((item) => (
                   <NavItem
                     key={item.label}
@@ -107,6 +105,6 @@ export default function Navbar() {
           </div>
 
         </div>
-      </div>
+      </header>
   );
 }

@@ -50,7 +50,7 @@ export default function Notices() {
   );
 
   return (
-    <div className="w-full min-h-screen bg-[#F8FAFC] font-sans">
+    <div className="w-full min-h-screen bg-canvas font-sans text-charcoal">
       <div className="relative w-full h-[60vh] min-h-[450px] overflow-hidden">
         <img
           src="/notice.jpg"
@@ -58,14 +58,15 @@ export default function Notices() {
           className="absolute inset-0 w-full h-full object-cover object-[center_73%]"
         />
 
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-navy/70 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-90" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-widest uppercase">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-extrabold text-pure tracking-wide">
             Notice Board
           </h1>
 
-          <p className="mt-4 text-lg sm:text-xl text-white font-medium tracking-wide">
+          <p className="mt-4 text-xl sm:text-2xl text-pure/90 font-medium tracking-wide">
             Stay Updated With NSS BIT Mesra Announcements
           </p>
         </div>
@@ -198,27 +199,27 @@ export default function Notices() {
         </span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pb-20 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pb-20 space-y-12">
         {filtered.length === 0 && (
-          <div className="text-center text-[#6B7280] py-20">
+          <div className="text-center font-mono text-muted py-20">
             No notices match your search.
           </div>
         )}
 
         {upcoming.length > 0 && (
-          <section>
-            <div className="flex items-center gap-2 mb-4">
+          <section className="animate-fade-in">
+            <div className="flex items-center gap-3 mb-6">
               <Bell
-                size={15}
-                className="text-[#F6170F]"
+                size={20}
+                className="text-crimson"
               />
 
-              <h3 className="text-sm font-semibold text-[#19366B] border-b-2 border-[#F6170F] pb-0.5">
+              <h3 className="text-xl font-display font-bold text-navy border-b-2 border-crimson pb-1">
                 Upcoming
               </h3>
 
-              <span className="text-xs text-[#6B7280]">
-                ({upcoming.length})
+              <span className="text-sm font-mono text-muted bg-whisper px-2 py-0.5 rounded-full">
+                {upcoming.length}
               </span>
             </div>
 
@@ -230,19 +231,19 @@ export default function Notices() {
         )}
 
         {past.length > 0 && (
-          <section>
-            <div className="flex items-center gap-2 mb-4">
+          <section className="animate-fade-in" style={{ animationDelay: "100ms" }}>
+            <div className="flex items-center gap-3 mb-6">
               <Calendar
-                size={15}
-                className="text-[#6B7280]"
+                size={20}
+                className="text-muted"
               />
 
-              <h3 className="text-sm font-semibold text-[#1F2937] border-b-2 border-[#D9DEE7] pb-0.5">
+              <h3 className="text-xl font-display font-bold text-navy border-b-2 border-whisper pb-1">
                 Past Notices
               </h3>
 
-              <span className="text-xs text-[#6B7280]">
-                ({past.length})
+              <span className="text-sm font-mono text-muted bg-whisper px-2 py-0.5 rounded-full">
+                {past.length}
               </span>
             </div>
 

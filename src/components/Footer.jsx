@@ -48,30 +48,30 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#19366B] font-sans">
+    <footer className="w-full bg-navy font-body text-canvas">
 
       {/* ── Top red divider ── */}
-      <div className="h-1 w-full bg-[#F6170F]" />
+      <div className="h-1 w-full bg-crimson" />
 
       {/* ── Main footer body ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* Column 1 — Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-6">
               <img src="/logos/nss_logo.png" alt="NSS Logo" className="h-12 w-auto object-contain" />
               <div>
-                <p className="text-white font-extrabold text-sm tracking-widest uppercase leading-tight">NSS</p>
-                <p className="text-white/70 text-xs tracking-wider uppercase leading-tight">BIT Mesra</p>
+                <p className="text-canvas font-display font-extrabold text-lg tracking-widest uppercase leading-tight">NSS</p>
+                <p className="text-canvas/70 text-xs tracking-wider uppercase leading-tight">BIT Mesra</p>
               </div>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-canvas/60 text-sm leading-relaxed">
               Not Me But You — developing student youth into socially responsible citizens through community service.
             </p>
 
             {/* Socials */}
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-3">
               {SOCIALS.map((s) => (
                 <a
                   key={s.label}
@@ -79,7 +79,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="flex items-center justify-center w-8 h-8 rounded border border-white/20 text-white/70 hover:text-white hover:border-[#F6170F] hover:bg-[#F6170F]/10 transition-colors duration-150"
+                  className="flex items-center justify-center w-10 h-10 rounded border border-canvas/20 text-canvas/70 hover:text-canvas hover:border-crimson hover:bg-crimson/10 transition-colors duration-150"
                 >
                   {s.icon}
                 </a>
@@ -89,10 +89,10 @@ export default function Footer() {
 
           {/* Column 2 — Site Pages */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4 pb-2 border-b border-white/10">
+            <h4 className="text-canvas font-display text-sm font-semibold uppercase tracking-widest mb-6 pb-2 border-b border-canvas/10">
               Pages
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <NavLink
@@ -101,8 +101,8 @@ export default function Footer() {
                     className={({ isActive }) =>
                       `text-sm transition-colors duration-150 ${
                         isActive
-                          ? "text-[#F6170F] font-medium"
-                          : "text-white/60 hover:text-white"
+                          ? "text-crimson font-medium"
+                          : "text-canvas/60 hover:text-crimson"
                       }`
                     }
                   >
@@ -115,17 +115,17 @@ export default function Footer() {
 
           {/* Column 3 — Quick Links */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4 pb-2 border-b border-white/10">
+            <h4 className="text-canvas font-display text-sm font-semibold uppercase tracking-widest mb-6 pb-2 border-b border-canvas/10">
               Quick Links
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-white/60 hover:text-white transition-colors duration-150"
+                    className="text-sm text-canvas/60 hover:text-crimson transition-colors duration-150"
                   >
                     {link.label}
                   </a>
@@ -136,20 +136,20 @@ export default function Footer() {
 
           {/* Column 4 — Contact */}
           <div>
-            <h4 className="text-white text-xs font-semibold uppercase tracking-widest mb-4 pb-2 border-b border-white/10">
+            <h4 className="text-canvas font-display text-sm font-semibold uppercase tracking-widest mb-6 pb-2 border-b border-canvas/10">
               Contact
             </h4>
-            <div className="space-y-3 text-sm text-white/60">
-              <div className="flex gap-2">
-                <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 mt-0.5 fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <div className="space-y-4 text-sm text-canvas/60">
+              <div className="flex gap-3">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 mt-0.5 fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <a href="mailto:nss@bitmesra.ac.in" className="hover:text-white transition-colors">
+                <a href="mailto:nss@bitmesra.ac.in" className="hover:text-crimson transition-colors">
                   nss@bitmesra.ac.in
                 </a>
               </div>
-              <div className="flex gap-2">
-                <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 mt-0.5 fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <div className="flex gap-3">
+                <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 mt-0.5 fill-none stroke-current stroke-2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
                 <span>NSS Office, Sports Complex, BIT Mesra, Ranchi – 835215</span>
@@ -157,11 +157,11 @@ export default function Footer() {
             </div>
 
             {/* Partner logos */}
-            <div className="mt-6 flex flex-wrap items-center gap-3 opacity-50">
-              <img src="/logos/bit_mesra.png"              alt="BIT Mesra"       className="h-7 w-auto object-contain" />
-              <img src="/logos/yas-logo 1.png"             alt="YAS"             className="h-7 w-auto object-contain brightness-0 invert" />
-              <img src="/logos/mybharat-logo 1.png"        alt="My Bharat"       className="h-6 w-auto object-contain brightness-0 invert" />
-              <img src="/logos/viksit-bharat-logo 1.png"   alt="Viksit Bharat"   className="h-6 w-auto object-contain brightness-0 invert" />
+            <div className="mt-8 flex flex-wrap items-center gap-4 opacity-60">
+              <img src="/logos/bit_mesra.png"              alt="BIT Mesra"       className="h-8 w-auto object-contain brightness-0 invert" />
+              <img src="/logos/yas-logo 1.png"             alt="YAS"             className="h-8 w-auto object-contain brightness-0 invert" />
+              <img src="/logos/mybharat-logo 1.png"        alt="My Bharat"       className="h-7 w-auto object-contain brightness-0 invert" />
+              <img src="/logos/viksit-bharat-logo 1.png"   alt="Viksit Bharat"   className="h-7 w-auto object-contain brightness-0 invert" />
             </div>
           </div>
 
@@ -169,12 +169,12 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-white/40 text-xs">
+      <div className="border-t border-canvas/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-canvas/50 text-sm font-mono">
             © 2026 NSS BIT Mesra. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs">
+          <p className="text-canvas/40 text-sm font-mono">
             National Service Scheme · BIT Mesra, Ranchi
           </p>
         </div>

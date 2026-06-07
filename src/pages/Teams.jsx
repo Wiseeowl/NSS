@@ -5,27 +5,19 @@ import { FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 const TeamCard = ({ image, name, role, linkedin, instagram, email }) => {
   return (
     <div
-      className="relative group bg-white rounded-3xl shadow-lg 
+      className="relative group bg-white rounded-2xl shadow-[0_10px_30px_rgba(13,27,54,0.05)] 
                  w-full max-w-[280px] h-[360px] mx-auto
                  flex flex-col items-center justify-start
                  pt-10 pb-6 px-6 text-center
-                 transition-all duration-300
-                 hover:-translate-y-2 hover:shadow-2xl"
+                 transition-all duration-300 ease-out
+                 hover:-translate-y-1 border border-[#19366B]/15 overflow-hidden"
     >
-      {/* NSS tricolor accent (top line) */}
-      <span className="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
-
-      {/* Soft patriotic glow on hover */}
-      <span
-        className="pointer-events-none absolute -inset-1 rounded-3xl
-                   bg-gradient-to-r from-[#FF9933]/10 via-white/10 to-[#138808]/10
-                   opacity-0 blur-lg transition-opacity duration-300
-                   group-hover:opacity-100"
-      />
+      {/* Crimson top-border accent on hover */}
+      <span className="absolute inset-x-0 top-0 h-1 bg-[#F6170F] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
 
       {/* Avatar */}
-      <div className="w-40 h-40 rounded-full overflow-hidden 
-                      border-4 border-white shadow-md z-10">
+      <div className="w-36 h-36 rounded-full overflow-hidden 
+                      border-4 border-white shadow-sm z-10 shrink-0">
         <img
           src={image || "/team/placeholder.jpg"}
           alt={name}
@@ -34,18 +26,18 @@ const TeamCard = ({ image, name, role, linkedin, instagram, email }) => {
       </div>
 
       {/* Text */}
-      <h3 className="mt-6 text-xl font-bold text-gray-900 z-10">
+      <h3 className="mt-6 text-xl font-bold text-[#0F172A] z-10 font-[Outfit] tracking-tight">
         {name}
       </h3>
-      <p className="text-base text-gray-500 z-10">
+      <p className="text-sm text-[#64748B] font-medium z-10 mt-1">
         {role}
       </p>
 
       {/* Social Icons (HOVER ONLY) */}
       <div
-        className="mt-5 flex gap-4 z-10
+        className="mt-auto flex gap-4 z-10
                    opacity-0 translate-y-2
-                   transition-all duration-300
+                   transition-all duration-300 ease-out
                    group-hover:opacity-100 group-hover:translate-y-0"
       >
         {linkedin && (
@@ -53,9 +45,9 @@ const TeamCard = ({ image, name, role, linkedin, instagram, email }) => {
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-[#0A66C2] transition-colors"
+            className="text-[#64748B] hover:text-[#0A66C2] transition-colors"
           >
-            <FaLinkedin size={22} />
+            <FaLinkedin size={20} />
           </a>
         )}
         {instagram && (
@@ -63,17 +55,17 @@ const TeamCard = ({ image, name, role, linkedin, instagram, email }) => {
             href={instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-[#E1306C] transition-colors"
+            className="text-[#64748B] hover:text-[#E1306C] transition-colors"
           >
-            <FaInstagram size={22} />
+            <FaInstagram size={20} />
           </a>
         )}
         {email && (
           <a
             href={`mailto:${email}`}
-            className="text-gray-600 hover:text-gray-900 transition-colors"
+            className="text-[#64748B] hover:text-[#0F172A] transition-colors"
           >
-            <FaEnvelope size={22} />
+            <FaEnvelope size={20} />
           </a>
         )}
       </div>
@@ -83,68 +75,66 @@ const TeamCard = ({ image, name, role, linkedin, instagram, email }) => {
 
 const Teams = () => {
   return (
-    <div className="relative min-h-screen bg-slate-50 overflow-hidden">
-
-      {/* Background Patriotic Mesh Blobs */}
+    <div className="relative min-h-screen bg-[#F8FAFC] overflow-hidden">
+      
+      {/* Background Accent Blobs - Kept subtle to align with new design */}
       <div className="absolute top-0 left-0 w-full h-full -z-0 pointer-events-none">
-        {/* Saffron Blob (Top Left) */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#FF9933]/10 blur-[120px]" />
-
-        {/* Green Blob (Bottom Right) */}
-        <div className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] rounded-full bg-[#138808]/10 blur-[120px]" />
-
-        {/* Blue Accent Blob (Middle Left) */}
-        <div className="absolute top-[40%] left-[-5%] w-[30%] h-[30%] rounded-full bg-blue-700/5 blur-[100px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#19366B]/5 blur-[120px]" />
+        <div className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] rounded-full bg-[#F6170F]/5 blur-[120px]" />
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 px-6 py-16 max-w-7xl mx-auto">
+      <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
 
         {/* EXECUTIVE BODY */}
-        <h2 className="text-4xl font-extrabold mb-14 text-center text-[#19366b] tracking-tight">
-          Executive Body
-        </h2>
-
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 mb-32">
-          {teamData.executive.map((m, i) => (
-            <TeamCard
-              key={i}
-              image={m.image}
-              name={m.name}
-              role={m.role}
-              linkedin={m.linkedin}
-              instagram={m.instagram}
-              email={m.email}
-            />
-          ))}
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-14 text-center text-[#0D1B36] tracking-tight font-[Outfit]">
+            Executive Body
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {teamData.executive.map((m, i) => (
+              <TeamCard
+                key={i}
+                image={m.image}
+                name={m.name}
+                role={m.role}
+                linkedin={m.linkedin}
+                instagram={m.instagram}
+                email={m.email}
+              />
+            ))}
+          </div>
         </div>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-[#19366B]/15 my-20" />
+
         {/* SUB TEAMS */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-24" />
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-14 text-center text-[#0D1B36] tracking-tight font-[Outfit]">
+            Sub Teams
+          </h2>
 
-        <h2 className="text-4xl font-extrabold mb-14 text-center text-[#19366b] tracking-tight">
-          Sub Teams
-        </h2>
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {teamData.teams.map((team, idx) => {
+              const m = team.assistantCoordinators?.[0];
+              return (
+                <div key={idx} className="flex flex-col items-center">
+                  <h3 className="text-lg font-bold mb-6 text-[#19366B] text-center bg-white px-5 py-2 rounded-full border border-[#19366B]/15 shadow-sm font-[Outfit] tracking-wide uppercase">
+                    {team.teamName}
+                  </h3>
 
-        <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-3">
-          {teamData.teams.map((team, idx) => {
-            const m = team.assistantCoordinators?.[0];
-            return (
-              <div key={idx} className="flex flex-col items-center">
-                <h3 className="text-2xl font-bold mb-8 text-[#19366b] text-center bg-white/50 px-4 py-1 rounded-full border border-blue-900/10 shadow-sm">
-                  {team.teamName}
-                </h3>
-
-                <TeamCard
-                  image={m?.image}
-                  name={m?.name}
-                  role="Assistant Coordinator"
-                  linkedin={m?.linkedin}
-                  instagram={m?.instagram}
-                />
-              </div>
-            );
-          })}
+                  <TeamCard
+                    image={m?.image}
+                    name={m?.name}
+                    role="Assistant Coordinator"
+                    linkedin={m?.linkedin}
+                    instagram={m?.instagram}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

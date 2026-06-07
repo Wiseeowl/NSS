@@ -32,52 +32,55 @@ const inferCategory = (name) => {
   return "Awareness";
 };
 
-const EventCard = ({ event, openModal, formatDate }) => {
+const EventCard = ({ event, openModal, formatDate, index }) => {
+  // Make the first event span 2 columns and 2 rows if desired, or alternate.
+  const isFeatured = index === 0;
+  const colSpan = isFeatured ? "sm:col-span-2 sm:row-span-2" : "col-span-1";
+
   return (
     <div
       onClick={() => openModal(event)}
-      className="group relative bg-white border border-[#19366b]/20 hover:-translate-y-[2px] hover:shadow-sm active:translate-y-0 active:shadow-none rounded-2xl overflow-hidden shadow-sm flex flex-col h-full cursor-pointer select-none transition-all duration-200 ease-out animate-fade-in"
+      className={`group relative bg-pure border border-whisper hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:shadow-none rounded-2xl overflow-hidden shadow-sm flex flex-col h-full cursor-pointer select-none transition-all duration-300 ease-out animate-fade-in ${colSpan}`}
+      style={{ animationDelay: `${index * 50}ms` }}
     >
-      
-
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
+      <div className={`relative w-full overflow-hidden bg-canvas ${isFeatured ? 'h-64 sm:h-full' : 'aspect-[4/3]'}`}>
         <img
           src={event.image}
           alt={event.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute top-3 left-3 bg-[#19366b] text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+        <div className="absolute top-4 left-4 bg-navy text-pure text-[10px] font-mono font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-sm">
           {event.category}
         </div>
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-zinc-400 mb-3.5">
-          <span className="flex items-center gap-1.5 bg-zinc-50 text-zinc-500 px-2.5 py-1 rounded-lg shadow-sm">
-            <Calendar className="h-3.5 w-3.5" />
+        <div className="flex flex-wrap items-center gap-3 text-xs font-mono font-semibold text-muted mb-4">
+          <span className="flex items-center gap-1.5 bg-canvas px-3 py-1.5 rounded-lg shadow-sm">
+            <Calendar className="h-3.5 w-3.5 text-crimson" />
             {formatDate(event.date)}
           </span>
-          <span className="flex items-center gap-1.5 bg-zinc-50 text-zinc-500 px-2.5 py-1 rounded-lg shadow-sm max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
-            <MapPin className="h-3.5 w-3.5" />
+          <span className="flex items-center gap-1.5 bg-canvas px-3 py-1.5 rounded-lg shadow-sm max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] truncate">
+            <MapPin className="h-3.5 w-3.5 text-crimson" />
             {event.location}
           </span>
         </div>
 
-        <h3 className="text-lg font-bold text-[#19366b] mb-3 leading-snug">
+        <h3 className={`font-display font-bold text-navy mb-3 leading-snug group-hover:text-crimson transition-colors ${isFeatured ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>
           {event.name}
         </h3>
 
-        <p className="text-zinc-650 text-sm leading-relaxed mb-6 border-l-2 border-[#f6170f] pl-3 line-clamp-3">
+        <p className={`text-muted text-sm leading-relaxed mb-6 border-l-2 border-crimson pl-3 ${isFeatured ? 'line-clamp-4' : 'line-clamp-3'}`}>
           {event.description}
         </p>
 
-        <div className="mt-auto pt-4 border-t border-zinc-100 flex items-center justify-between">
-          <span className="text-xs font-bold text-[#19366b] flex items-center gap-1 group-hover:underline underline-offset-4">
+        <div className="mt-auto pt-5 border-t border-whisper flex items-center justify-between">
+          <span className="text-sm font-display font-bold text-navy flex items-center gap-1 group-hover:underline underline-offset-4 decoration-crimson">
             View Details
           </span>
           
-          <div className="w-7 h-7 rounded-full bg-zinc-50 border border-zinc-200/80 flex items-center justify-center text-[#19366b] shadow-sm">
-            <ChevronRight className="h-3.5 w-3.5" />
+          <div className="w-8 h-8 rounded-full bg-canvas border border-whisper flex items-center justify-center text-navy shadow-sm group-hover:bg-crimson group-hover:text-pure group-hover:border-crimson transition-colors">
+            <ChevronRight className="h-4 w-4" />
           </div>
         </div>
       </div>
@@ -127,21 +130,22 @@ export default function Events() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-zinc-50 font-sans pb-24 text-zinc-800">
+    <div className="w-full min-h-screen bg-canvas font-sans pb-24 text-charcoal">
       <div className="relative w-full h-[35vh] sm:h-[45vh] lg:h-[50vh] min-h-[260px] sm:min-h-[320px] lg:min-h-[380px] overflow-hidden flex items-center justify-center">
         <img
           src="/health.jpeg"
           alt="NSS Events"
           className="absolute inset-0 w-full h-full object-cover select-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-80" />
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-wide uppercase mt-3.5 sm:mt-4 mb-3 sm:mb-4 drop-shadow-md">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-pure tracking-wide mt-3.5 sm:mt-4 mb-3 sm:mb-4 drop-shadow-lg">
             Events & Activities
           </h1>
           
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-200 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-pure/90 font-medium max-w-2xl mx-auto leading-relaxed">
             Engage With Our Community Initiatives
           </p>
         </div>
@@ -225,27 +229,28 @@ export default function Events() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg sm:text-xl font-semibold text-[#1F2937]">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-navy">
             {activeCategory === "All" ? "All Events" : activeCategory}
           </h2>
-          <span className="text-sm text-[#6B7280]">
+          <span className="text-sm font-mono text-muted bg-whisper px-3 py-1 rounded-full">
             Showing {filteredEvents.length} {filteredEvents.length === 1 ? "event" : "events"}
           </span>
         </div>
 
         {filteredEvents.length === 0 ? (
-          <div className="text-center text-[#6B7280] py-20">
+          <div className="text-center text-muted font-mono py-20">
             No events match your search.
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredEvents.map((event) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-fr">
+            {filteredEvents.map((event, index) => (
               <EventCard
                 key={event.id}
                 event={event}
                 openModal={openModal}
                 formatDate={formatDate}
+                index={index}
               />
             ))}
           </div>

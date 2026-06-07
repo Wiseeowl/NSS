@@ -15,51 +15,53 @@ const iconMap = {
   Rocket
 };
 
-function SchemeCard({ scheme }) {
+function SchemeCard({ scheme, featured }) {
   const IconComponent = iconMap[scheme.categoryIcon];
 
   return (
     <div
       className="
       bg-white
-      border border-[#D9DEE7]
-      rounded-md
+      border border-[#19366B]/15
+      rounded-2xl
       flex flex-col h-full
-
-      transition-all duration-200 ease-out
-      hover:-translate-y-[2px]
-      hover:shadow-sm
-
-      active:translate-y-0
-      active:shadow-none
+      relative group overflow-hidden
+      transition-all duration-300 ease-out
+      hover:-translate-y-1
+      hover:shadow-[0_10px_30px_rgba(13,27,54,0.05)]
      "
     >
-      <div className="h-[3px] w-full bg-[#19366B]" />
-      <div className="p-6 flex flex-col h-full">
+      {/* Crimson top-border accent on hover */}
+      <span className="absolute inset-x-0 top-0 h-1 bg-[#F6170F] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 z-10" />
+      
+      <div className={`p-6 flex flex-col h-full ${featured ? 'md:p-8' : ''}`}>
         
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-5">
           <div
             className="
-              w-9 h-9
+              w-10 h-10
               flex items-center justify-center
-              border border-[#E1E6ED]
-              rounded
+              border border-[#19366B]/10
+              rounded-lg
               bg-[#F8FAFC]
+              shrink-0
             "
           >
             {IconComponent && (
-              <IconComponent size={18} className="text-[#F6170F]" />
+              <IconComponent size={20} className="text-[#F6170F]" />
             )}
           </div>
 
           <span
             className="
-              text-[11px]
+              text-xs
+              font-bold
               uppercase
               tracking-wider
-              text-[#6B7280]
+              text-[#64748B]
               break-words
               whitespace-normal
+              font-[Outfit]
             "
           >
             {scheme.category}
@@ -68,46 +70,47 @@ function SchemeCard({ scheme }) {
 
         
         <h3
-          className="
-            text-[16px]
-            font-semibold
-            text-[#19366B]
+          className={`
+            font-bold
+            text-[#0D1B36]
             leading-snug
             mb-3
-          "
+            font-[Outfit]
+            tracking-tight
+            ${featured ? 'text-2xl md:text-3xl' : 'text-xl'}
+          `}
         >
           {scheme.title}
         </h3>
 
         
         <p
-          className="
-            text-sm
-            text-[#4B5563]
+          className={`
+            text-[#0F172A]
             leading-relaxed
-            line-clamp-3
             mb-6
-          "
+            ${featured ? 'text-base md:text-lg line-clamp-5' : 'text-sm line-clamp-3'}
+          `}
         >
           {scheme.shortInfo}
         </p>
 
         
-        <div className="mt-auto pt-4 border-t border-[#E6EAF0]">
+        <div className="mt-auto pt-5 border-t border-[#19366B]/10">
           <a
             href={scheme.link}
             target="_blank"
             rel="noopener noreferrer"
             className="
-              inline-flex items-center gap-1.5
-              text-sm font-medium
+              inline-flex items-center gap-2
+              text-sm font-bold
               text-[#19366B]
-              hover:underline
-              underline-offset-4
+              hover:text-[#F6170F]
+              transition-colors duration-200
             "
           >
             View details
-            <ArrowRight size={14} />
+            <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>
