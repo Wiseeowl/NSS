@@ -21,12 +21,6 @@ export default function Hero() {
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
             <button 
-              className="bg-[#F6170F] text-white font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform shadow-[0_10px_30px_rgba(246,23,15,0.25)] uppercase tracking-wide text-sm"
-              style={{ fontFamily: `"Outfit", sans-serif` }}
-            >
-              Get Involved
-            </button>
-            <button 
               className="bg-transparent border-2 border-[#0D1B36] text-[#0D1B36] font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform hover:bg-[#0D1B36]/5 uppercase tracking-wide text-sm"
               style={{ fontFamily: `"Outfit", sans-serif` }}
             >
@@ -42,8 +36,6 @@ export default function Hero() {
           className="absolute inset-0 h-full w-full object-cover object-center"
           draggable="false"
         />
-        {/* Deep contrast overlay for brand feel */}
-        <div className="absolute inset-0 bg-[#0D1B36]/20" />
       </div>
     </section>
   );
