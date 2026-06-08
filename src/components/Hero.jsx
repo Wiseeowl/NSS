@@ -21,7 +21,7 @@ export default function Hero() {
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
             <button 
-              className="bg-transparent border-2 border-[#0D1B36] text-[#0D1B36] font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform hover:bg-[#0D1B36]/5 uppercase tracking-wide text-sm"
+              className="bg-[#F6170F] text-white font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform shadow-[0_10px_30px_rgba(246,23,15,0.25)] hover:shadow-[0_15px_40px_rgba(246,23,15,0.4)] uppercase tracking-wide text-sm"
               style={{ fontFamily: `"Outfit", sans-serif` }}
             >
               Our Impact
@@ -33,7 +33,7 @@ export default function Hero() {
         <img
           src="/BACKGROUND.png"
           alt="NSS BIT Mesra Students"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center contrast-125 brightness-110 saturate-150"
           draggable="false"
         />
       </div>
