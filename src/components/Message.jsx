@@ -99,7 +99,7 @@ export default function Message() {
       </div>
 
       {/* Events Grid */}
-      <div className="mx-auto max-w-7xl mt-32">
+      <div id="recent-events" className="mx-auto max-w-7xl mt-32 scroll-mt-24">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight" style={{ fontFamily: `"Outfit", sans-serif` }}>

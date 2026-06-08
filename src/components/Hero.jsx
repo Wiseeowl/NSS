@@ -20,16 +20,17 @@ export default function Hero() {
             The National Service Scheme at BIT Mesra provides a platform for students to look beyond academics and actively contribute to society.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
-            <button 
-              className="bg-[#F6170F] text-white font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform shadow-[0_10px_30px_rgba(246,23,15,0.25)] hover:shadow-[0_15px_40px_rgba(246,23,15,0.4)] uppercase tracking-wide text-sm"
+            <a 
+              href="#recent-events"
+              className="inline-block bg-[#F6170F] text-white font-bold py-4 px-8 rounded-lg hover:-translate-y-[2px] transition-transform shadow-[0_10px_30px_rgba(246,23,15,0.25)] hover:shadow-[0_15px_40px_rgba(246,23,15,0.4)] uppercase tracking-wide text-sm"
               style={{ fontFamily: `"Outfit", sans-serif` }}
             >
               Our Impact
-            </button>
+            </a>
           </div>
         </div>
       </div>
-      <div className="w-full md:w-[40%] relative min-h-[500px] md:min-h-full bg-[#0D1B36]">
+      <div className="w-full md:w-[40%] relative min-h-[300px] sm:min-h-[400px] md:min-h-full bg-[#0D1B36]">
         <img
           src="/BACKGROUND.png"
           alt="NSS BIT Mesra Students"
